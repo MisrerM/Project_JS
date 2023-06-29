@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <div id="gameBlock">
+      <canvas id="gameCanvas" width="800" height="500"></canvas>
+      <button id="startButton">Start Game</button>
+      <button id="endButton">End Game</button>
+      <div id="score">Score: 0</div>
+      <div id="timer">Time: 0s</div>
+    </div>
+
+    <div id="records">
+      <h2>Top 10 Records</h2>
+      <ol id="highScoresList1">Level 1</ol>
+      <ol id="highScoresList2">Level 2</ol>
+      <ol id="highScoresList3">Level 3</ol>
+      <ol id="highScoresList4">Level 4</ol>
+      <ol id="highScoresList5">Level 5</ol>
+    </div>
+    <div id="levelSelection">
+      <h2>Select Level</h2>
+      <button class="level-button" id="level1Button" data-level="level1">Start_Level 1</button>
+      <br>
+      <button class="level-button" id="level2Button" data-level="level2">Start_Level 2</button>
+      <br>
+      <button class="level-button" id="level3Button" data-level="level3">Start_Level 3</button>
+      <br>
+      <button class="level-button" id="level4Button" data-level="level4">Start_Level 4</button>
+      <br>
+      <button class="level-button" id="level5Button" data-level="level5">Start_Level 5</button>
+    </div>
+  </div>
+  <audio id="clickSound" src="sound/korotkiy-zvuk-broska-kokosa-ob-zemlyu.mp3"></audio>
+  <script src="scripts/level1.js"></script>
+  <script src="scripts/level2.js"></script>
+  <script src="scripts/level3.js"></script>
+  <script src="scripts/level4.js"></script>
+  <script src="scripts/level5.js"></script>
+  
+</body>
+</html>

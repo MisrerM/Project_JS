@@ -1,0 +1,71 @@
+canvas {
+  border: 2px solid #000;
+}
+
+#gameContainer {
+  position: relative;
+  display: flex;
+}
+
+#gameBlock {
+  margin-right: 60px;
+  position: relative;
+}
+
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  background-color: #fcfafa;
+}
+
+#score {
+  margin-bottom: 10px;
+}
+
+#records {
+  border: 2px solid #000;
+  padding: 10px;
+}
+
+#records h2 {
+  margin-top: 0;
+}
+
+#records ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+#customCursorContainer {
+  cursor: url('images/icon-cursor.png'), auto;
+}
+
+#customCursorContainer {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#customCursor {
+  display: none;
+}
+#gameCanvas {
+  cursor: pointer;
+}
+
+#gameCanvas:active {
+  cursor: grabbing;
+}
+#levelSelection {
+  border: 2px solid red;
+  width: 200px;
+  height: 200px;
+  margin-left: 20px;
+  
+}
+button {
+  color: blue;
+  cursor: pointer;
+  background-color: yellow;
+ 
+}
