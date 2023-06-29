@@ -1,4 +1,5 @@
 function GameLevel5() {
+  //Отримуємо потрібні нам елементи з DOM у вигляді змінних
   const canvas = document.getElementById('gameCanvas');
   const ctx = canvas.getContext('2d');
   const scoreElement = document.getElementById('score');
