@@ -116,6 +116,7 @@ function GameLevel1() {
       isGameRunning = false;
       startButton.style.display = 'block';
       updateHighScores();
+      alert('Game over! Your score: ' + score);
     
     }
   }

@@ -1,8 +1,8 @@
-function GameLevel3() {
+function GameLevel2() {
   const canvas = document.getElementById('gameCanvas');
   const ctx = canvas.getContext('2d');
   const scoreElement = document.getElementById('score');
-  const highScoresList3 = document.getElementById('highScoresList3');
+  const highScoresList2 = document.getElementById('highScoresList2');
   const startButton = document.getElementById('startButton');
   const endButton = document.getElementById('endButton');
 
@@ -10,7 +10,7 @@ function GameLevel3() {
   let isGameRunning = false;
   const gameDuration = 60000; // 1 хвилина в мілісекундах
   const squareSize = 50;
-  const squareSpeed = 3;
+  const squareSpeed = 2;
   let squareX = canvas.width / 2;
   let squareY = canvas.height / 2;
 
@@ -28,7 +28,7 @@ function GameLevel3() {
         mouseY >= squareY - squareSize / 2 &&
         mouseY <= squareY + squareSize / 2
       ) {
-        score += 3; // Збільшуємо кількість очків за клік на квадрат на 3
+        score += 2;
         scoreElement.textContent = 'Score: ' + score;
       }
     }
@@ -62,7 +62,6 @@ function GameLevel3() {
 
     isGameRunning = true;
     startButton.style.display = 'none';
-    endButton.style.display = 'block';
     score = 0;
     scoreElement.textContent = 'Score: ' + score;
 
@@ -78,35 +77,36 @@ function GameLevel3() {
         clearInterval(timerInterval);
         isGameRunning = false;
         startButton.style.display = 'block';
-        endButton.style.display = 'none';
         updateHighScores(score);
         alert('Game over! Your score: ' + score);
       }
     }, 1000);
   }
 
-  function endGame() {
-    if (!isGameRunning) return;
-
-    clearInterval(timerInterval);
-    isGameRunning = false;
-    startButton.style.display = 'block';
-    endButton.style.display = 'none';
-    updateHighScores(score);
-    
-  }
-
   function updateHighScores(newScore) {
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
     highScores.push(newScore);
     highScores.sort((a, b) => b - a);
-    highScores.splice(10);
-
+    highScores.splice(5);
     localStorage.setItem('highScores', JSON.stringify(highScores));
 
-    highScoresList3.innerHTML = highScores
-      .map((score, index) => `<li>${score}</li>`)
-      .join('');
+    highScoresList2.innerHTML = '';
+    highScores.forEach((highScore, index) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = highScore;
+      highScoresList2.appendChild(listItem);
+    });
+  }
+
+  function endGameLevel2() {
+    if (isGameRunning) {
+      clearInterval(timerInterval);
+      isGameRunning = false;
+      startButton.style.display = 'block';
+      updateHighScores(score);
+      alert('Game over! Your score: ' + score);
+      
+    }
   }
 
   canvas.addEventListener('click', handleClick);
@@ -118,10 +118,9 @@ function GameLevel3() {
   }
 
   startButton.addEventListener('click', startGame);
-  endButton.addEventListener('click', endGame);
+  endButton.addEventListener('click', endGameLevel2);
 
   gameLoop();
 }
 
-const level3Button = document.getElementById('level3Button');
-level3Button.addEventListener('click', GameLevel3);
+document.getElementById('level2Button').addEventListener('click', GameLevel2);

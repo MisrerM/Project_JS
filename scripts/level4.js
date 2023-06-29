@@ -112,6 +112,7 @@ function GameLevel4() {
     level4Button.style.display = 'inline';
     endButton.style.display = 'none';
     updateHighScores(score);
+    alert('Game over! Your score: ' + score);
   }
 
   function updateHighScores(newScore) {
